@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyber Sugar Studios</title>
+<meta name="description" content="Cyber Sugar Studios makes games, including APX, a tabletop roleplaying system you can play in your browser at playapx.com.">
+<meta property="og:title" content="Cyber Sugar Studios">
+<meta property="og:description" content="Home of APX. Play at playapx.com.">
+<meta property="og:url" content="https://cybersugarstudios.com/">
+<style>
+  /* Starter page: change the words, colours and sections freely. The APX link is the part to keep. */
+  :root {
+    --bg: #0b0f1a; --panel: #121829; --line: #26304a; --text: #e8ecf6; --muted: #9aa6c3;
+    --pink: #ff5fa8; --cyan: #37d6ff; --btn: #ff5fa8; --btn-text: #1a0712;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header { border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { font-weight: 900; letter-spacing: .02em; text-decoration: none; font-size: 1.05rem; white-space: nowrap; }
+  .brand span { color: var(--pink); }
+  nav { white-space: nowrap; }
+  nav a { color: var(--muted); text-decoration: none; font-weight: 700; margin-left: 20px; }
+  nav a:hover { color: var(--text); }
+  .hero { padding: 88px 0 56px; }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; margin: 0 0 16px; letter-spacing: -.02em; }
+  .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--pink), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p { color: var(--muted); font-size: 1.15rem; max-width: 36rem; margin: 0; }
+  .section-title { font-size: .8rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); font-weight: 800; margin: 0 0 14px; }
+  .game { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  .game .copy { padding: 32px; }
+  .game h2 { margin: 0 0 6px; font-size: 2rem; letter-spacing: -.01em; }
+  .game .tag { color: var(--cyan); font-weight: 800; margin: 0 0 14px; }
+  .game ul { color: var(--muted); padding-left: 1.1rem; margin: 0 0 24px; }
+  .game .art { background: radial-gradient(circle at 30% 30%, rgba(255,95,168,.35), transparent 55%), radial-gradient(circle at 75% 70%, rgba(55,214,255,.3), transparent 55%), #0e1424;
+               display: grid; place-items: center; min-height: 260px; font-weight: 900; font-size: 5rem; letter-spacing: .08em; color: rgba(255,255,255,.9); }
+  .btn { display: inline-block; background: var(--btn); color: var(--btn-text); font-weight: 900; text-decoration: none; padding: 12px 20px; border-radius: 10px; }
+  .btn:hover { filter: brightness(1.08); }
+  .btn-note { display: block; margin-top: 10px; color: var(--muted); font-size: .85rem; }
+  main { padding-bottom: 72px; }
+  footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+  footer .wrap { padding-top: 24px; padding-bottom: 32px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  @media (max-width: 720px) {
+    .game { grid-template-columns: 1fr; }
+    .game .art { min-height: 140px; font-size: 3.4rem; order: -1; }
+    .game .copy { padding: 22px; }
+    .hero { padding: 56px 0 36px; }
+    nav a { margin-left: 14px; }
+    nav a.wide { display: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/">Cyber <span>Sugar</span> Studios</a>
+    <nav><a class="wide" href="#games">Games</a><a href="https://playapx.com/">Play APX</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>We make games that are <em>built to be played together.</em></h1>
+    <p>Cyber Sugar Studios is an independent game studio. Replace this line with a sentence about who you are and what you make.</p>
+  </section>
+
+  <section id="games">
+    <p class="section-title">Our games</p>
+    <article class="game">
+      <div class="copy">
+        <h2>APX</h2>
+        <p class="tag">A tabletop roleplaying system, with everything the table needs in the browser.</p>
+        <ul>
+          <li>Character sheets with built-in dice, powers and crafting</li>
+          <li>GM tools: initiative, NPC builder, loot and battle maps</li>
+          <li>Free to play on phone, tablet or computer</li>
+        </ul>
+        <a class="btn" href="https://playapx.com/">Play APX at playapx.com</a>
+        <span class="btn-note">Used APX here before? Sign in at playapx.com with the same account.</span>
+      </div>
+      <div class="art" aria-hidden="true">APX</div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Cyber Sugar Studios</span>
+    <a href="https://playapx.com/">playapx.com</a>
+  </div>
+</footer>
+</body>
+</html>

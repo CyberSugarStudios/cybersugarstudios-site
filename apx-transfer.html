@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Moving your APX data</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b0f1a; color: #e2e8f0;
+         font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding: 16px; box-sizing: border-box; }
+  main { max-width: 26rem; background: #111827; border: 1px solid #334155; border-radius: 12px; padding: 20px 22px; }
+  h1 { font-size: 1.05rem; margin: 0 0 .4rem; color: #a5b4fc; }
+  p { margin: .4rem 0; color: #cbd5e1; }
+  a { color: #a5b4fc; font-weight: 700; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Moving your APX data to playapx.com</h1>
+  <p id="status">Collecting what this browser saved for APX…</p>
+  <p><a href="https://playapx.com/">Go to playapx.com</a></p>
+</main>
+<script>
+  // Opened by the "Bring my browser data" button on playapx.com. Browsers keep saved data per web
+  // address, so APX's settings, folders, joined worlds and account-free worlds saved here stay here.
+  // This page hands them (only the APX entries) to playapx.com, and to no other site.
+  (function () {
+    var NEW_HOME = ['https://playapx.com', 'https://www.playapx.com'];
+    var status = document.getElementById('status');
+    var data = {}, count = 0;
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (/^apx/i.test(k)) { data[k] = localStorage.getItem(k); count++; }
+      }
+    } catch (e) { }
+    if (!window.opener) {
+      status.textContent = 'To move your data, go to playapx.com and press "Bring my browser data" there. This page does the rest.';
+      return;
+    }
+    window.addEventListener('message', function (e) {
+      if (NEW_HOME.indexOf(e.origin) < 0 || !e.data || e.data.type !== 'apx-transfer-done') return;
+      status.textContent = e.data.count
+        ? 'Done: ' + e.data.count + ' item' + (e.data.count === 1 ? '' : 's') + ' moved. This window will close.'
+        : 'Done: playapx.com already had everything. This window will close.';
+      setTimeout(function () { window.close(); }, 1500);
+    });
+    NEW_HOME.forEach(function (origin) {
+      try { window.opener.postMessage({ type: 'apx-transfer', data: data, count: count }, origin); } catch (e) { }
+    });
+    status.textContent = count
+      ? 'Sending ' + count + ' saved item' + (count === 1 ? '' : 's') + ' to playapx.com…'
+      : 'This browser has no APX data saved at the old address, so there is nothing to move. You can close this window.';
+  })();
+</script>
+</body>
+</html>

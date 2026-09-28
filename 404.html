@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Page not found · Cyber Sugar Studios</title>
+<script>
+  // Old APX links (pages, scripts, maps) now live at playapx.com: forward them there
+  (function () {
+    var p = location.pathname;
+    if (/^\/(APX_[^/]*\.html|js\/|css\/|tools\/)/i.test(p)) {
+      var q = location.search ? location.search + '&apxmoved=1' : '?apxmoved=1';
+      location.replace('https://playapx.com' + p + q + location.hash);
+    }
+  })();
+</script>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b0f1a; color: #e2e8f0;
+         font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding: 16px; box-sizing: border-box; text-align: center; }
+  h1 { font-size: 1.4rem; margin: 0 0 .5rem; }
+  a { color: #a5b4fc; font-weight: 700; }
+</style>
+</head>
+<body>
+<main>
+  <h1>That page isn't here.</h1>
+  <p><a href="/">Cyber Sugar Studios home</a> · Looking for APX? It's at <a href="https://playapx.com/">playapx.com</a>.</p>
+</main>
+</body>
+</html>
