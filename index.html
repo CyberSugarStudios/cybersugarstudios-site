@@ -3,93 +3,204 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cyber Sugar Studios</title>
-<meta name="description" content="Cyber Sugar Studios makes games, including APX, a tabletop roleplaying system you can play in your browser at playapx.com.">
-<meta property="og:title" content="Cyber Sugar Studios">
-<meta property="og:description" content="Home of APX. Play at playapx.com.">
+<title>CyberSugar Studios</title>
+<meta name="description" content="CyberSugar Studios makes video games and tabletop games, including APX, a classless, Action Point oriented TTRPG engine you can play at playapx.com.">
+<meta property="og:title" content="CyberSugar Studios">
+<meta property="og:description" content="Games you'll crave. Home of Solais, The Front Gate and the APX tabletop RPG engine.">
 <meta property="og:url" content="https://cybersugarstudios.com/">
 <style>
-  /* Starter page: change the words, colours and sections freely. The APX link is the part to keep. */
+  /* Logos and game art: drop these files into an "images" folder next to this page and they appear
+     on their own (nothing breaks while they're missing):
+       images/logo.png          CyberSugar Studios logo (header and top of the page)
+       images/apx-logo.png      APX logo (Tabletop Games card)
+       images/solais.jpg        Solais key art
+       images/front-gate.jpg    The Front Gate key art                                                  */
   :root {
-    --bg: #0b0f1a; --panel: #121829; --line: #26304a; --text: #e8ecf6; --muted: #9aa6c3;
+    --bg: #0b0f1a; --panel: #121829; --panel2: #0e1424; --line: #26304a; --text: #e8ecf6; --muted: #9aa6c3;
     --pink: #ff5fa8; --cyan: #37d6ff; --btn: #ff5fa8; --btn-text: #1a0712;
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
   a { color: inherit; }
+  img { max-width: 100%; }
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
-  header { border-bottom: 1px solid var(--line); }
-  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
-  .brand { font-weight: 900; letter-spacing: .02em; text-decoration: none; font-size: 1.05rem; white-space: nowrap; }
-  .brand span { color: var(--pink); }
-  nav { white-space: nowrap; }
-  nav a { color: var(--muted); text-decoration: none; font-weight: 700; margin-left: 20px; }
+  section[id] { scroll-margin-top: 80px; }
+
+  /* Header */
+  header.top { position: sticky; top: 0; z-index: 10; background: rgba(11,15,26,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: .02em; text-decoration: none; font-size: 1.05rem; white-space: nowrap; }
+  .brand img { height: 36px; width: auto; }
+  .brand b { color: var(--pink); font-weight: 900; }
+  nav { display: flex; align-items: center; gap: 20px; white-space: nowrap; }
+  nav a { color: var(--muted); text-decoration: none; font-weight: 700; }
   nav a:hover { color: var(--text); }
-  .hero { padding: 88px 0 56px; }
-  .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; margin: 0 0 16px; letter-spacing: -.02em; }
+  nav a.pill { color: var(--btn-text); background: var(--btn); padding: 6px 12px; border-radius: 999px; }
+  nav a.pill:hover { color: var(--btn-text); filter: brightness(1.08); }
+
+  /* Hero */
+  .hero { padding: 88px 0 64px; }
+  .hero-logo { display: block; height: 96px; width: auto; margin: 0 0 24px; }
+  .hero h1 { font-size: clamp(2.6rem, 8vw, 5rem); line-height: 1.02; margin: 0 0 18px; letter-spacing: -.03em; }
   .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--pink), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .hero p { color: var(--muted); font-size: 1.15rem; max-width: 36rem; margin: 0; }
-  .section-title { font-size: .8rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); font-weight: 800; margin: 0 0 14px; }
-  .game { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  .hero p { color: var(--muted); font-size: 1.15rem; max-width: 38rem; margin: 0; }
+
+  /* Sections */
+  .block { padding: 8px 0 72px; }
+  .section-title { font-size: .8rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); font-weight: 800; margin: 0 0 6px; }
+  .block h2.head { font-size: clamp(1.7rem, 4vw, 2.3rem); margin: 0 0 22px; letter-spacing: -.01em; }
+  .art { position: relative; overflow: hidden; display: grid; place-items: center; font-weight: 900; color: rgba(255,255,255,.92); text-align: center; padding: 12px;
+         background: radial-gradient(circle at 30% 30%, rgba(255,95,168,.35), transparent 55%), radial-gradient(circle at 75% 70%, rgba(55,214,255,.3), transparent 55%), var(--panel2); }
+  .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .art.logo img { object-fit: contain; padding: 28px; }
+  .art.has-img > span { visibility: hidden; }
+
+  /* Video games */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  .card .art { aspect-ratio: 16 / 9; font-size: 1.6rem; letter-spacing: .02em; }
+  .card .body { padding: 18px 20px 22px; }
+  .card h3 { margin: 0 0 6px; font-size: 1.25rem; }
+  .card p { margin: 0; color: var(--muted); }
+  .badge { display: inline-block; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); border: 1px solid rgba(55,214,255,.45); border-radius: 999px; padding: 2px 10px; margin-bottom: 8px; }
+  .more { display: inline-block; margin-top: 20px; font-weight: 800; color: var(--cyan); text-decoration: none; }
+  .more:hover { text-decoration: underline; }
+
+  /* APX */
+  .game { display: grid; grid-template-columns: 1.25fr 1fr; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
   .game .copy { padding: 32px; }
-  .game h2 { margin: 0 0 6px; font-size: 2rem; letter-spacing: -.01em; }
-  .game .tag { color: var(--cyan); font-weight: 800; margin: 0 0 14px; }
-  .game ul { color: var(--muted); padding-left: 1.1rem; margin: 0 0 24px; }
-  .game .art { background: radial-gradient(circle at 30% 30%, rgba(255,95,168,.35), transparent 55%), radial-gradient(circle at 75% 70%, rgba(55,214,255,.3), transparent 55%), #0e1424;
-               display: grid; place-items: center; min-height: 260px; font-weight: 900; font-size: 5rem; letter-spacing: .08em; color: rgba(255,255,255,.9); }
+  .game h3 { margin: 0 0 6px; font-size: 2.2rem; letter-spacing: -.01em; }
+  .game .tag { color: var(--cyan); font-weight: 800; margin: 0 0 14px; font-size: 1.05rem; }
+  .game .tag b { color: var(--pink); font-weight: 900; }
+  .game p.desc { color: var(--muted); margin: 0 0 24px; }
+  .game .art { min-height: 280px; font-size: 5rem; letter-spacing: .08em; }
   .btn { display: inline-block; background: var(--btn); color: var(--btn-text); font-weight: 900; text-decoration: none; padding: 12px 20px; border-radius: 10px; }
   .btn:hover { filter: brightness(1.08); }
   .btn-note { display: block; margin-top: 10px; color: var(--muted); font-size: .85rem; }
-  main { padding-bottom: 72px; }
+
+  /* Contact */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .contact .box { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
+  .contact dl { margin: 0; }
+  .contact dt { font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 800; }
+  .contact dd { margin: 2px 0 16px; font-size: 1.05rem; font-weight: 700; }
+  .contact dd:last-child { margin-bottom: 0; }
+  .contact dd a { color: var(--cyan); text-decoration: none; }
+  .contact dd a:hover { text-decoration: underline; }
+  .social { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .social a { text-decoration: none; font-weight: 800; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel2); }
+  .social a:hover { border-color: var(--pink); }
+
   footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
   footer .wrap { padding-top: 24px; padding-bottom: 32px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  @media (max-width: 720px) {
+
+  @media (max-width: 760px) {
+    nav a:not(.pill) { display: none; }
+    .hero { padding: 56px 0 44px; }
+    .hero-logo { height: 72px; }
     .game { grid-template-columns: 1fr; }
-    .game .art { min-height: 140px; font-size: 3.4rem; order: -1; }
+    .game .art { min-height: 150px; font-size: 3.4rem; order: -1; }
     .game .copy { padding: 22px; }
-    .hero { padding: 56px 0 36px; }
-    nav a { margin-left: 14px; }
-    nav a.wide { display: none; }
+    .contact { grid-template-columns: 1fr; }
+    .block { padding-bottom: 56px; }
   }
 </style>
 </head>
 <body>
-<header>
+<header class="top">
   <div class="wrap">
-    <a class="brand" href="/">Cyber <span>Sugar</span> Studios</a>
-    <nav><a class="wide" href="#games">Games</a><a href="https://playapx.com/">Play APX</a></nav>
+    <a class="brand" href="#about"><img src="images/logo.png" alt="" onerror="this.remove()"><span>Cyber<b>Sugar</b> Studios</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#video-games">Video Games</a>
+      <a href="#tabletop-games">Tabletop Games</a>
+      <a href="#contact">Contact</a>
+      <a class="pill" href="https://playapx.com/">Play APX</a>
+    </nav>
   </div>
 </header>
 
 <main class="wrap">
-  <section class="hero">
-    <h1>We make games that are <em>built to be played together.</em></h1>
-    <p>Cyber Sugar Studios is an independent game studio. Replace this line with a sentence about who you are and what you make.</p>
+  <section id="about" class="hero">
+    <img class="hero-logo" src="images/logo.png" alt="CyberSugar Studios logo" onerror="this.remove()">
+    <h1>Games you'll <em>crave.</em></h1>
+    <p>CyberSugar Studios is a game studio based in California, USA, making video games and tabletop roleplaying games.</p>
   </section>
 
-  <section id="games">
-    <p class="section-title">Our games</p>
+  <section id="video-games" class="block">
+    <p class="section-title">Video Games</p>
+    <h2 class="head">What we're making</h2>
+    <div class="cards">
+      <article class="card">
+        <div class="art"><img src="images/solais.jpg" alt="" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span>Solais</span></div>
+        <div class="body">
+          <h3>Solais</h3>
+          <p>As a Scottish lighthouse keeper during WWII, you must balance daily maintenance duties with protecting your family from German attacks and the encroaching horrors of war.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="art"><img src="images/front-gate.jpg" alt="" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span>The Front Gate</span></div>
+        <div class="body">
+          <h3>The Front Gate</h3>
+          <p>As the gatekeeper of humanity's last sanctuary, you must vet arriving survivors and manage limited resources to rebuild society without letting a deadly plague inside.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="art"><span>Game Off 2026</span></div>
+        <div class="body">
+          <span class="badge">Coming soon</span>
+          <h3>GitHub Game Off 2026</h3>
+          <p>Our entry for this year's GitHub Game Off is on its way.</p>
+        </div>
+      </article>
+    </div>
+    <a class="more" href="https://cybersugarstudios.itch.io">Find our games on itch.io →</a>
+  </section>
+
+  <section id="tabletop-games" class="block">
+    <p class="section-title">Tabletop Games</p>
+    <h2 class="head">APX</h2>
     <article class="game">
       <div class="copy">
-        <h2>APX</h2>
-        <p class="tag">A tabletop roleplaying system, with everything the table needs in the browser.</p>
-        <ul>
-          <li>Character sheets with built-in dice, powers and crafting</li>
-          <li>GM tools: initiative, NPC builder, loot and battle maps</li>
-          <li>Free to play on phone, tablet or computer</li>
-        </ul>
+        <p class="tag">A Classless, <b>A</b>ction <b>P</b>oint Oriented, E<b>X</b>perience-Based TTRPG Engine</p>
+        <p class="desc">The Action Point Experience Engine is a tabletop roleplaying system built for high-stakes adventures. Whether you are exploring uncharted nebulas or delving into ancient dungeons, the game does not hand you survival in a package of preselected abilities. You earn your success through grit and tactical choices. Your survival depends entirely on how you spend your Action Points in the heat of the moment.</p>
         <a class="btn" href="https://playapx.com/">Play APX at playapx.com</a>
-        <span class="btn-note">Used APX here before? Sign in at playapx.com with the same account.</span>
+        <span class="btn-note">Character sheets, GM tools and battle maps, right in your browser. Used APX here before? Sign in at playapx.com with the same account.</span>
       </div>
-      <div class="art" aria-hidden="true">APX</div>
+      <div class="art logo"><img src="images/apx-logo.png" alt="APX logo" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span aria-hidden="true">APX</span></div>
     </article>
+  </section>
+
+  <section id="contact" class="block">
+    <p class="section-title">Contact Us</p>
+    <h2 class="head">Say hello</h2>
+    <div class="contact">
+      <div class="box">
+        <dl>
+          <dt>Email</dt>
+          <dd><a href="mailto:info@cybersugarstudios.com">info@cybersugarstudios.com</a></dd>
+          <dt>Location</dt>
+          <dd>Based in California, USA</dd>
+        </dl>
+      </div>
+      <div class="box">
+        <dl><dt>Follow us</dt></dl>
+        <div class="social">
+          <a href="https://www.tiktok.com/@cybersugarstudios">TikTok</a>
+          <a href="https://www.instagram.com/cybersugarstudios">Instagram</a>
+          <a href="https://cybersugarstudios.itch.io">itch.io</a>
+          <a href="https://x.com/CyberSugarGames">X (Twitter)</a>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Cyber Sugar Studios</span>
+    <span>© 2026 CyberSugar Studios</span>
     <a href="https://playapx.com/">playapx.com</a>
   </div>
 </footer>
