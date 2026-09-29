@@ -9,28 +9,34 @@
 <meta property="og:description" content="Games you'll crave. Home of Solais and the APX tabletop RPG engine.">
 <meta property="og:url" content="https://cybersugarstudios.com/">
 <meta property="og:image" content="https://cybersugarstudios.com/images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <style>
   :root {
-    --bg: #0b0f1a; --panel: #121829; --panel2: #0e1424; --line: #26304a; --text: #e8ecf6; --muted: #9aa6c3;
-    --pink: #ff5fa8; --cyan: #37d6ff; --btn: #ff5fa8; --btn-text: #1a0712;
+    --bg: #171717; --panel: #1f1f1f; --panel2: #1b1b1b; --line: #303030; --text: #ededed; --muted: #a8a8a8;
+    --pink: #e91c7b; --cyan: #00fcfc; --btn: #e91c7b; --btn-text: #ffffff;
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif; }
   a { color: inherit; }
   img { max-width: 100%; }
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
   section[id] { scroll-margin-top: 80px; }
 
   /* Header */
-  header.top { position: sticky; top: 0; z-index: 10; background: rgba(11,15,26,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  header.top { position: sticky; top: 0; z-index: 10; background: rgba(23,23,23,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
   header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: .02em; text-decoration: none; font-size: 1.05rem; white-space: nowrap; }
   .brand img { height: 40px; width: auto; }
-  .brand b { color: var(--pink); font-weight: 900; }
+  .brand .wordmark { display: flex; align-items: center; gap: 6px; }
+  .brand .wordmark img { width: auto; display: block; }
+  .brand .wm-cs { height: 34px; }
+  .brand .wm-st { height: 22px; }
   nav { display: flex; align-items: center; gap: 20px; white-space: nowrap; }
   nav a { color: var(--muted); text-decoration: none; font-weight: 700; }
   nav a:hover { color: var(--text); }
@@ -44,13 +50,13 @@
   .hero p { color: var(--muted); font-size: 1.1rem; margin: 0 0 16px; }
   .hero .human { color: var(--text); border-left: 3px solid var(--pink); padding: 2px 0 2px 14px; margin: 0; }
   .hero .human b { color: var(--pink); }
-  .hero .logo-big { display: block; width: 100%; max-width: 380px; height: auto; margin-left: auto; filter: drop-shadow(0 12px 40px rgba(255,95,168,.25)); }
+  .hero .logo-big { display: block; width: 100%; max-width: 380px; height: auto; margin-left: auto; filter: drop-shadow(0 12px 40px rgba(233,28,123,.25)); }
 
   /* Sections */
   .block { padding: 8px 0 72px; }
   .block h2.head { font-size: clamp(1.7rem, 4vw, 2.3rem); margin: 0 0 22px; letter-spacing: -.01em; }
   .art { position: relative; overflow: hidden; display: grid; place-items: center; font-weight: 900; color: rgba(255,255,255,.92); text-align: center; padding: 12px;
-         background: radial-gradient(circle at 30% 30%, rgba(255,95,168,.35), transparent 55%), radial-gradient(circle at 75% 70%, rgba(55,214,255,.3), transparent 55%), var(--panel2); }
+         background: radial-gradient(circle at 30% 30%, rgba(233,28,123,.35), transparent 55%), radial-gradient(circle at 75% 70%, rgba(0,252,252,.3), transparent 55%), var(--panel2); }
   .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .art.logo img { object-fit: contain; padding: 28px; }
   .art.has-img > span { visibility: hidden; }
@@ -58,8 +64,8 @@
   a.art img { transition: transform .35s ease, filter .35s ease; }
   a.art:hover img, a.art:focus-visible img { transform: scale(1.03); filter: brightness(1.06); }
   a.art:focus-visible { outline: 3px solid var(--cyan); outline-offset: -3px; }
-  .art .go { position: absolute; right: 12px; bottom: 12px; z-index: 1; font-size: .8rem; font-weight: 800; letter-spacing: 0; color: #fff; background: rgba(11,15,26,.78); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 4px 11px; line-height: 1.3; backdrop-filter: blur(4px); }
-  a.art:hover .go, a.art:focus-visible .go { background: var(--pink); border-color: var(--pink); color: #0b0f1a; }
+  .art .go { position: absolute; right: 12px; bottom: 12px; z-index: 1; font-size: .8rem; font-weight: 800; letter-spacing: 0; color: #fff; background: rgba(23,23,23,.78); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 4px 11px; line-height: 1.3; backdrop-filter: blur(4px); }
+  a.art:hover .go, a.art:focus-visible .go { background: var(--pink); border-color: var(--pink); color: #fff; }
 
   /* Feature cards (Solais, APX) */
   .feature { display: grid; grid-template-columns: 1fr 1fr; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
@@ -68,7 +74,7 @@
   .feature p.desc { color: var(--muted); margin: 0 0 20px; }
   .feature .art { min-height: 300px; font-size: 5rem; letter-spacing: .08em; }
   .feature .art.keyart { aspect-ratio: 1575 / 1250; min-height: 0; padding: 0; }
-  .award { display: flex; gap: 12px; align-items: flex-start; background: var(--panel2); border: 1px solid rgba(255,95,168,.45); border-radius: 12px; padding: 12px 14px; text-decoration: none; }
+  .award { display: flex; gap: 12px; align-items: flex-start; background: var(--panel2); border: 1px solid rgba(233,28,123,.45); border-radius: 12px; padding: 12px 14px; text-decoration: none; }
   .award:hover { border-color: var(--pink); }
   .award .rank { font-size: 1.9rem; font-weight: 900; line-height: 1; color: var(--pink); }
   .award .rank sup { font-size: .9rem; }
@@ -76,7 +82,7 @@
   .award .what small { display: block; color: var(--muted); font-weight: 600; font-size: .85rem; }
   .soon { margin-top: 18px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; }
   .soon h3 { margin: 0; font-size: 1.1rem; }
-  .badge { display: inline-block; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); border: 1px solid rgba(55,214,255,.45); border-radius: 999px; padding: 2px 10px; }
+  .badge { display: inline-block; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); border: 1px solid rgba(0,252,252,.45); border-radius: 999px; padding: 2px 10px; }
   .more { display: inline-block; margin-top: 20px; font-weight: 800; color: var(--cyan); text-decoration: none; }
   .more:hover { text-decoration: underline; }
 
@@ -106,6 +112,7 @@
 
   @media (max-width: 760px) {
     nav a:not(.pill) { display: none; }
+    .brand .wm-cs { height: 28px; } .brand .wm-st { height: 18px; }
     .hero { grid-template-columns: 1fr; padding: 32px 0 44px; gap: 12px; }
     .hero .logo-big { max-width: 240px; margin: 0 auto; order: -1; }
     .hero picture { order: -1; }
@@ -121,7 +128,7 @@
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#about"><img src="images/logo-mark.png" alt="" width="41" height="40"><span>Cyber<b>Sugar</b> Studios</span></a>
+    <a class="brand" href="#about" aria-label="CyberSugar Studios"><img src="images/logo-mark.png" alt="" width="40" height="40"><span class="wordmark"><img class="wm-cs" src="images/wordmark-cybersugar.png" alt="CyberSugar" width="539" height="160"><img class="wm-st" src="images/wordmark-studios.png" alt="Studios" width="592" height="120"></span></a>
     <nav>
       <a href="#about">About Us</a>
       <a href="#video-games">Video Games</a>
