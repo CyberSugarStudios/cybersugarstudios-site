@@ -54,6 +54,12 @@
   .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .art.logo img { object-fit: contain; padding: 28px; }
   .art.has-img > span { visibility: hidden; }
+  a.art { text-decoration: none; }
+  a.art img { transition: transform .35s ease, filter .35s ease; }
+  a.art:hover img, a.art:focus-visible img { transform: scale(1.03); filter: brightness(1.06); }
+  a.art:focus-visible { outline: 3px solid var(--cyan); outline-offset: -3px; }
+  .art .go { position: absolute; right: 12px; bottom: 12px; z-index: 1; font-size: .8rem; font-weight: 800; letter-spacing: 0; color: #fff; background: rgba(11,15,26,.78); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 4px 11px; line-height: 1.3; backdrop-filter: blur(4px); }
+  a.art:hover .go, a.art:focus-visible .go { background: var(--pink); border-color: var(--pink); color: #0b0f1a; }
 
   /* Feature cards (Solais, APX) */
   .feature { display: grid; grid-template-columns: 1fr 1fr; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
@@ -131,7 +137,7 @@
     <div>
       <h1>Games you'll <em>crave.</em></h1>
       <p>CyberSugar Studios is a small indie game studio where artists, programmers, and musicians come together to build imaginative worlds and unforgettable experiences. We create both video games and tabletop role-playing games, blending creativity across digital and physical play.</p>
-      <p class="human"><b>Human-made, from start to finish.</b> We're proud of our artistic integrity and do not use generative AI in our creative work.</p>
+      <p class="human"><b>Human-made art, music, writing and design.</b> Every illustration, song, sound, story and game design in our games is created by people. We're proud of our artistic integrity and do not use generative AI to make any of it.</p>
     </div>
     <picture>
       <source srcset="images/logo-anim.webp" type="image/webp">
@@ -142,7 +148,7 @@
   <section id="video-games" class="block">
     <h2 class="head">Video Games</h2>
     <article class="feature">
-      <div class="art keyart has-img"><img src="images/solais.jpg" alt="Solais: a lighthouse keeper walks toward the lighthouse's beam, carrying someone in his arms" width="1200" height="952"><span>Solais</span></div>
+      <a class="art keyart has-img" href="https://cybersugarstudios.itch.io/solais" aria-label="Play Solais on itch.io"><img src="images/solais.jpg" alt="Solais: a lighthouse keeper walks toward the lighthouse's beam, carrying someone in his arms" width="1200" height="952"><span>Solais</span><small class="go">Play on itch.io ↗</small></a>
       <div class="copy">
         <h3>Solais</h3>
         <p class="desc">As a Scottish lighthouse keeper during WWII, you must balance daily maintenance duties with protecting your family from German attacks and the encroaching horrors of war.</p>
@@ -169,7 +175,7 @@
         <a class="btn" href="https://playapx.com/">Play APX at playapx.com</a>
         <span class="btn-note">Character sheets, GM tools and battle maps, right in your browser. Used APX here before? Sign in at playapx.com with the same account.</span>
       </div>
-      <div class="art logo"><img src="images/apx-logo.png" alt="APX logo" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span aria-hidden="true">APX</span></div>
+      <a class="art logo" href="https://playapx.com/" aria-label="Play APX at playapx.com"><img src="images/apx-logo.png" alt="APX logo" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span aria-hidden="true">APX</span><small class="go">Play at playapx.com ↗</small></a>
     </article>
   </section>
 
@@ -187,10 +193,10 @@
       <div class="box">
         <dl><dt>Follow us</dt></dl>
         <div class="social">
-          <a href="https://bsky.app/profile/cybersugarstudio.bsky.social"><img src="images/icon-bluesky.png" alt="">Bluesky</a>
-          <a href="https://www.instagram.com/cybersugarstudios"><img src="images/icon-instagram.png" alt="">Instagram</a>
           <a href="https://www.tiktok.com/@cybersugarstudios"><img src="images/icon-tiktok.png" alt="">TikTok</a>
           <a href="https://cybersugarstudios.itch.io"><img src="images/icon-itchio.png" alt="">itch.io</a>
+          <a href="https://www.instagram.com/cybersugarstudios"><img src="images/icon-instagram.png" alt="">Instagram</a>
+          <a href="https://bsky.app/profile/cybersugarstudio.bsky.social"><img src="images/icon-bluesky.png" alt="">Bluesky</a>
         </div>
       </div>
     </div>
