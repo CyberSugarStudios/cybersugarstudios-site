@@ -35,8 +35,8 @@
   .brand img { height: 40px; width: auto; }
   .brand .wordmark { display: flex; align-items: center; gap: 6px; }
   .brand .wordmark img { width: auto; display: block; }
-  .brand .wm-cs { height: 45px; }
-  .brand .wm-st { height: 12px; margin-left: -10px; }
+  .brand .wm-cs { height: 34px; }
+  .brand .wm-st { height: 22px; }
   nav { display: flex; align-items: center; gap: 20px; white-space: nowrap; }
   nav a { color: var(--muted); text-decoration: none; font-weight: 700; }
   nav a:hover { color: var(--text); }
@@ -112,7 +112,7 @@
 
   @media (max-width: 760px) {
     nav a:not(.pill) { display: none; }
-    .brand .wm-cs { height: 37.5px; } .brand .wm-st { height: 10px; margin-left: -8px; }
+    .brand .wm-cs { height: 28px; } .brand .wm-st { height: 18px; }
     .hero { grid-template-columns: 1fr; padding: 32px 0 44px; gap: 12px; }
     .hero .logo-big { max-width: 240px; margin: 0 auto; order: -1; }
     .hero picture { order: -1; }
@@ -134,7 +134,7 @@
       <a href="#video-games">Video Games</a>
       <a href="#tabletop-games">Tabletop Games</a>
       <a href="#contact">Contact Us</a>
-      <a class="pill" href="https://playapx.com/">Play APX</a>
+      <a class="pill" href="https://playapx.com/" target="_blank" rel="noopener">Play APX</a>
     </nav>
   </div>
 </header>
@@ -144,7 +144,7 @@
     <div>
       <h1>Games you'll <em>crave.</em></h1>
       <p>CyberSugar Studios is a small indie game studio where artists, programmers, and musicians come together to build imaginative worlds and unforgettable experiences. We create both video games and tabletop role-playing games, blending creativity across digital and physical play.</p>
-      <p class="human"><b>Human-made art, music, writing, and design.</b> Every illustration, song, sound, story, and game design in our games is created by people. We're proud of our artistic integrity and do not use generative AI to make any of it.</p>
+      <p class="human"><b>Human-made art, music, writing and design.</b> Every illustration, song, sound, story and game design in our games is created by people. We're proud of our artistic integrity and do not use generative AI to make any of it.</p>
     </div>
     <picture>
       <source srcset="images/logo-anim.webp" type="image/webp">
@@ -155,11 +155,11 @@
   <section id="video-games" class="block">
     <h2 class="head">Video Games</h2>
     <article class="feature">
-      <a class="art keyart has-img" href="https://cybersugarstudios.itch.io/solais" aria-label="Play Solais on itch.io"><img src="images/solais.jpg" alt="Solais: a lighthouse keeper walks toward the lighthouse's beam, carrying someone in his arms" width="1200" height="952"><span>Solais</span><small class="go">Play on itch.io ↗</small></a>
+      <a class="art keyart has-img" href="https://cybersugarstudios.itch.io/solais" aria-label="Play Solais on itch.io" target="_blank" rel="noopener"><img src="images/solais.jpg" alt="Solais: a lighthouse keeper walks toward the lighthouse's beam, carrying someone in his arms" width="1200" height="952"><span>Solais</span><small class="go">Play on itch.io ↗</small></a>
       <div class="copy">
         <h3>Solais</h3>
         <p class="desc">As a Scottish lighthouse keeper during WWII, you must balance daily maintenance duties with protecting your family from German attacks and the encroaching horrors of war.</p>
-        <a class="award" href="https://itch.io/jam/game-off-2025/results">
+        <a class="award" href="https://itch.io/jam/game-off-2025/results" target="_blank" rel="noopener">
           <span class="rank">11<sup>th</sup></span>
           <span class="what">Overall, out of 699 ranked games in GitHub Game Off 2025<small>Including #8 in Audio · See the rankings →</small></span>
         </a>
@@ -169,7 +169,7 @@
       <span class="badge">Coming soon</span>
       <h3>GitHub Game Off 2026</h3>
     </div>
-    <a class="more" href="https://cybersugarstudios.itch.io">Find our games on itch.io →</a>
+    <a class="more" href="https://cybersugarstudios.itch.io" target="_blank" rel="noopener">Find our games on itch.io →</a>
   </section>
 
   <section id="tabletop-games" class="block">
@@ -179,10 +179,10 @@
         <h3>APX</h3>
         <p class="tag">A Classless, <b>A</b>ction <b>P</b>oint Oriented, E<b>X</b>perience-Based TTRPG Engine</p>
         <p class="desc">The Action Point Experience Engine is a tabletop roleplaying system built for high-stakes adventures. Whether you are exploring uncharted nebulas or delving into ancient dungeons, the game does not hand you survival in a package of preselected abilities. You earn your success through grit and tactical choices. Your survival depends entirely on how you spend your Action Points in the heat of the moment.</p>
-        <a class="btn" href="https://playapx.com/">Play APX at playapx.com</a>
+        <a class="btn" href="https://playapx.com/" target="_blank" rel="noopener">Play APX at playapx.com</a>
         <span class="btn-note">Character sheets, GM tools and battle maps, right in your browser. Used APX here before? Sign in at playapx.com with the same account.</span>
       </div>
-      <a class="art logo" href="https://playapx.com/" aria-label="Play APX at playapx.com"><img src="images/apx-logo.png" alt="APX logo" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span aria-hidden="true">APX</span><small class="go">Play at playapx.com ↗</small></a>
+      <a class="art logo" href="https://playapx.com/" aria-label="Play APX at playapx.com" target="_blank" rel="noopener"><img src="images/apx-logo.png" alt="APX logo" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()"><span aria-hidden="true">APX</span><small class="go">Play at playapx.com ↗</small></a>
     </article>
   </section>
 
@@ -192,7 +192,7 @@
       <div class="box">
         <dl>
           <dt>Email</dt>
-          <dd><a href="mailto:info@cybersugarstudios.com">info@cybersugarstudios.com</a></dd>
+          <dd><a href="mailto:info@cybersugarstudios.com" target="_blank" rel="noopener">info@cybersugarstudios.com</a></dd>
           <dt>Location</dt>
           <dd>Based in California, USA</dd>
         </dl>
@@ -200,10 +200,10 @@
       <div class="box">
         <dl><dt>Follow us</dt></dl>
         <div class="social">
-          <a href="https://www.tiktok.com/@cybersugarstudios"><img src="images/icon-tiktok.png" alt="">TikTok</a>
-          <a href="https://cybersugarstudios.itch.io"><img src="images/icon-itchio.png" alt="">itch.io</a>
-          <a href="https://www.instagram.com/cybersugarstudios"><img src="images/icon-instagram.png" alt="">Instagram</a>
-          <a href="https://bsky.app/profile/cybersugarstudio.bsky.social"><img src="images/icon-bluesky.png" alt="">Bluesky</a>
+          <a href="https://www.tiktok.com/@cybersugarstudios" target="_blank" rel="noopener"><img src="images/icon-tiktok.png" alt="">TikTok</a>
+          <a href="https://cybersugarstudios.itch.io" target="_blank" rel="noopener"><img src="images/icon-itchio.png" alt="">itch.io</a>
+          <a href="https://www.instagram.com/cybersugarstudios" target="_blank" rel="noopener"><img src="images/icon-instagram.png" alt="">Instagram</a>
+          <a href="https://bsky.app/profile/cybersugarstudio.bsky.social" target="_blank" rel="noopener"><img src="images/icon-bluesky.png" alt="">Bluesky</a>
         </div>
       </div>
     </div>
@@ -213,7 +213,7 @@
 <footer>
   <div class="wrap">
     <span>© 2026 CyberSugar Studios</span>
-    <a href="https://playapx.com/">playapx.com</a>
+    <a href="https://playapx.com/" target="_blank" rel="noopener">playapx.com</a>
   </div>
 </footer>
 </body>
